@@ -2,11 +2,13 @@ package project.entities.personagem;
 
 import java.util.ArrayList;
 
+import project.dto.PersonagemDTO;
 import project.enums.Classe;
 
 public class Personagem {
 	private String nome;
-	private float idade,altura;
+	private int idade;
+	private double altura;
 	private int ph;
 	private int ad;
 	private int vida;
@@ -27,7 +29,7 @@ public class Personagem {
     }
 
 
-	public Personagem(String nome, float idade, int ph, int ad, int vida, int defesa, Classe classe,
+	public Personagem(String nome, int idade, double altura,int ph, int ad, int vida, int defesa, Classe classe,
 			Skill skill1, Skill skill2, Skill skill3) {
 		super();
 		this.nome = nome;
@@ -42,7 +44,24 @@ public class Personagem {
 		this.skill2 = skill2;
 		this.skill3 = skill3;
 	}
-
+	public Personagem(PersonagemDTO personagemDTO,Skill skill1, Skill skill2, Skill skill3) {
+		this.nome = personagemDTO.nome();
+		this.idade = personagemDTO.idade();
+		this.altura = personagemDTO.altura();
+		this.ph = personagemDTO.ph();
+		this.ad = personagemDTO.ad();
+		this.vida = personagemDTO.vida();
+		this.defesa = personagemDTO.defesa();
+		this.classe = personagemDTO.classe();
+		this.skill1 = skill1;
+		this.skill2 = skill2;
+		this.skill3 = skill3;
+		
+	}
+	public Personagem() {
+		
+	}
+	
 	public String getNome() {
 		return nome;
 	}
@@ -55,15 +74,15 @@ public class Personagem {
 		return idade;
 	}
 
-	public void setIdade(float idade) {
+	public void setIdade(int idade) {
 		this.idade = idade;
 	}
 
-	public float getAltura() {
+	public double getAltura() {
 		return altura;
 	}
 
-	public void setAltura(float altura) {
+	public void setAltura(double altura) {
 		this.altura = altura;
 	}
 
@@ -130,8 +149,10 @@ public class Personagem {
 	public void setSkill3(Skill skill3) {
 		this.skill3 = skill3;
 	}
-	
-	
-	
+	public void mostrar_personagem() {
+		for(int i = 0; i<lista_personagem.size();i++) {
+			System.out.println(lista_personagem.get(i).getNome());
+		}
+	}
 	
 }
