@@ -1,24 +1,46 @@
 package project.entities.personagem;
 
+import java.util.ArrayList;
 
-public abstract class Personagem {
+import project.enums.Classe;
+
+public class Personagem {
 	private String nome;
 	private float idade,altura;
-	private int ph,ad,vida;
+	private int ph;
+	private int ad;
+	private int vida;
+	private int defesa;
+	private Classe classe;
 	private Skill skill1;
 	private Skill skill2;
 	private Skill skill3;
 	
-	public Personagem(String nome, float idade, float altura, int vida, int ad, int ph, Skill skill1, Skill skill2, Skill skill3) {
-		this.setNome(nome);
-		this.setAd(ad);
-		this.setAltura(altura);
-		this.setVida(vida);
-		this.setIdade(idade);
-		this.setPh(ph);
-		this.setSkill1(skill1);
-		this.setSkill2(skill2);
-		this.setSkill3(skill3);
+	private static ArrayList<Personagem> lista_personagem = new ArrayList<>();
+	
+	public static ArrayList<Personagem> getLista_personagem(){
+		return lista_personagem;
+	}
+	
+	public static void setLista_personagem(ArrayList<Personagem> lista_personagem) {
+        Personagem.lista_personagem = lista_personagem;
+    }
+
+
+	public Personagem(String nome, float idade, int ph, int ad, int vida, int defesa, Classe classe,
+			Skill skill1, Skill skill2, Skill skill3) {
+		super();
+		this.nome = nome;
+		this.idade = idade;
+		this.altura = altura;
+		this.ph = ph;
+		this.ad = ad;
+		this.vida = vida;
+		this.defesa = defesa;
+		this.classe = classe;
+		this.skill1 = skill1;
+		this.skill2 = skill2;
+		this.skill3 = skill3;
 	}
 
 	public String getNome() {
@@ -69,6 +91,22 @@ public abstract class Personagem {
 		this.vida = vida;
 	}
 
+	public int getDefesa() {
+		return defesa;
+	}
+
+	public void setDefesa(int defesa) {
+		this.defesa = defesa;
+	}
+
+	public Classe getClasse() {
+		return classe;
+	}
+
+	public void setClasse(Classe classe) {
+		this.classe = classe;
+	}
+
 	public Skill getSkill1() {
 		return skill1;
 	}
@@ -92,6 +130,7 @@ public abstract class Personagem {
 	public void setSkill3(Skill skill3) {
 		this.skill3 = skill3;
 	}
+	
 	
 	
 	
