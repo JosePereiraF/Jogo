@@ -63,6 +63,9 @@ public class Criacao {
 				System.out.println("Digite "+opcao);
 				classe = classe(sc.nextLine());
 				break;
+			default:
+				System.out.println("opção invalida");
+				break;
 			}
 		}
 		PersonagemDTO personagemDTO = new PersonagemDTO(nome,idade,altura,ph,ad,vida,defesa,classe);

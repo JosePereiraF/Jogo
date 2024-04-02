@@ -1,11 +1,13 @@
 package project.entities.personagem;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import project.dto.PersonagemDTO;
 import project.enums.Classe;
 
 public class Personagem {
+	Scanner sc = new Scanner(System.in);
 	private String nome;
 	private int idade;
 	private double altura;
@@ -56,9 +58,6 @@ public class Personagem {
 		this.skill1 = skill1;
 		this.skill2 = skill2;
 		this.skill3 = skill3;
-		
-	}
-	public Personagem() {
 		
 	}
 	
@@ -153,6 +152,20 @@ public class Personagem {
 		for(int i = 0; i<lista_personagem.size();i++) {
 			System.out.println(lista_personagem.get(i).getNome());
 		}
+	}
+	public Personagem escolha_personagem() {
+		String personagem;
+		mostrar_personagem();
+		System.out.println("Digite o nome do seu personagem:");
+		personagem = sc.nextLine();
+		for(int i = 0; i<lista_personagem.size();i++) {
+			if(personagem.equalsIgnoreCase(lista_personagem.get(i).getNome())) {
+				Personagem personagem_a = lista_personagem.get(i);
+				return personagem_a;// isso não retorna o personagem talvez criar um construtor que receba o index como parametro
+				
+			}
+		}
+		return null;
 	}
 	
 }
