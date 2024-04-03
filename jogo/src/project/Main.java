@@ -15,7 +15,7 @@ import project.funcionalidade.Menu;
 public class Main {
 
 	public static void main(String[] args) {
-		
+		Scanner sc = new Scanner(System.in);
 		/*
 		 * 1- criar um metodo de sorteador de numero para funcionar como dado (check)
 		 * 2- criar um metodo que calcule o dano dos champ que receba a skill + o valor do dado (check)
@@ -43,6 +43,7 @@ public class Main {
 		
 		
 		Batalha batalha = new Batalha();
+		Calculo calculo = new Calculo();
 		Personagem p = new Personagem();
 		SkillAtivaDTO skill= new SkillAtivaDTO(skill2.getNome(),skill2.getDano(),skill2.getCooldown(),false, false);
 		Calculo calcula = new Calculo();
@@ -53,25 +54,23 @@ public class Main {
 //			if(skill.cooldown() !=0) System.out.println("opção invalida tempo de recarga: "+skill.cooldown());
 //			else System.out.println(skill); 
 //		}
-		
 		batalha.simulacao(personagem_a, personagem_b);
+			
 	}
 
 }
 
 /*
- 		Scanner sc = new Scanner(System.in);
-		Scanner scInt = new Scanner(System.in);
-		String nome;
-		int idade;
-		String sobrenome;
-		for(int i = 0; i<3;i++) {
-			System.out.println("digite seu nome");
-			nome= sc.nextLine();
-			System.out.println("Digite sua idade");
-			idade = sc.nextInt();
-			System.out.println("Digite seu sobrenome");
-			sobrenome = sc.nextLine();
-			
-		}
+ 					System.out.println("Ataque: "+ personagem_a.getNome());
+					escolha4 =escilher(personagem_a);
+					if(escolha4==1 ) {
+						System.out.println(calculo.verifica_cooldown(skill1));
+						
+						}else if(escolha4==2 ) {
+							System.out.println(calculo.verifica_cooldown(skill2));
+						
+						}else {
+							System.out.println(calculo.verifica_cooldown(skill3));
+						}
+					dano_a = calculo.calculadano(personagem_a.getAd(), personagem_a.getPh(), escolherskill(personagem_a,escolha4).dano());
  */
