@@ -2,6 +2,8 @@ package project.funcionalidade;
 
 import java.util.Random;
 
+import project.dto.SkillAtivaDTO;
+
 public class Calculo {
 
 	public int dado() {
@@ -27,5 +29,36 @@ public class Calculo {
 		}
 		
 	}
+	
+	public SkillAtivaDTO calcula_cooldown(SkillAtivaDTO skill) {//2
+		boolean ativada;
+		int cooldown;
+		cooldown = skill.cooldown() - 1;//1
+		
+		if(cooldown == 0) {
+			SkillAtivaDTO skill1 = new SkillAtivaDTO(skill.nome(),skill.dano(),cooldown, true,false);
+			// true ela é utilizavel e  false nao foi utilizada ainda
+			return skill1;
+		}else {
+			SkillAtivaDTO skill1 = new SkillAtivaDTO(skill.nome(),skill.dano(),cooldown, false,skill.utilizada());
+			return skill1;
+		}
+	}
+	
+	public SkillAtivaDTO reseta_cooldown(SkillAtivaDTO skill, int cooldown) {
+		if(skill.cooldown() == 0 && skill.utilizada() == true) {
+			SkillAtivaDTO skill1 = new SkillAtivaDTO(skill.nome(),skill.dano(),cooldown, false,true);
+			//quando ele utilizar a skill tenho que trocar os dois para false para dizer que a skill não esta utilizavel e true porque ela ja foi utilizada
+			// posso usar isso para devolver uma mensagem que a skill foi utilizada e o cooldown dela 
+			return skill1;
+		}
+		else {
+			SkillAtivaDTO skill1 = new SkillAtivaDTO(skill.nome(),skill.dano(),skill.cooldown(), true,false);
+			return skill1;
+			
+		}
+	}
+	
+	
 	
 }

@@ -4,11 +4,21 @@ public class Skill {
 	private String nome;
 	private int dano;
 	private String efeito;
+	private int cooldown;
 	
-	public Skill(String nome, int dano, String efeito) {
+	public Skill(String nome, int dano, String efeito,int cooldown) {
 		this.nome = nome;
 		this.dano = dano;
 		this.efeito = efeito;
+		this.cooldown= cooldown;
+		
+	}
+	
+	public int getCooldown() {
+		return cooldown;
+	}
+	public void setCooldown(int cooldown) {
+		this.cooldown = cooldown;
 	}
 	public String getNome() {
 		return nome;

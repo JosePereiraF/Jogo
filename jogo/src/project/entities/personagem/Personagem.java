@@ -60,6 +60,7 @@ public class Personagem {
 		this.skill3 = skill3;
 		
 	}
+	public Personagem() {}
 	
 	public String getNome() {
 		return nome;
